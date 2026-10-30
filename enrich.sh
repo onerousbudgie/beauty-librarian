@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+export PATH=/usr/bin:/usr/local/bin:C:/Users/YOU/.npm-global/bin:$PATH
+MSG="Run the beauty-librarian SWEEP now. Process beauty captures from TWO sources: (A) every .md stub in C:/Users/YOU/ObsidianVault/_BeautyInbox (ignore .keep); (B) the channel queue C:/Users/YOU/.openclaw/workspace/capture/beauty_queue.jsonl read oldest-first, where a line whose text contains a URL is a capture and a FOLLOWING line that is only tag words (no URL) holds the TAGS for the capture above it -- merge them (the PKM follow-up-tags pattern). For each capture: route by source type; for YouTube use yt-dlp to get the timestamped transcript and chapters; split a multi-look video into one card per look with deep-linked steps. TAGGING RULE: every card MUST have at least one value in EVERY facet -- category, body-part, effort, silhouette (hair), occasion, vibe, state, accessibility, suitable-for, accessory, tool, technique -- using 'none' or 'not-applicable' ONLY where a facet truly does not apply, so no facet is ever blank. Apply the user's tags AND pass every user word through extra_tags so it always sticks. Derive the thumbnail. Write the card(s) via scripts/capture.py with library_dir C:/Users/YOU/ObsidianVault/Beauty Library. DEDUPE: skip any source_url whose card already exists in the library. After success delete processed inbox stubs and truncate beauty_queue.jsonl. Reply ONE line listing what was saved, or 'nothing new'."
+openclaw agent --session-key agent:main:beauty-enrich --message "$MSG" --timeout 600 >> /tmp/beauty_enrich.log 2>&1
+echo "exit $?"
+
+# rebuild the searchable gallery after the sweep
+python "C:/Users/YOU/.openclaw/workspace/skills/beauty-librarian/scripts/build_gallery.py" >/dev/null 2>&1 || true

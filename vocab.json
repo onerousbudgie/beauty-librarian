@@ -1,0 +1,53 @@
+{
+  "_README": "Controlled vocabulary for beauty-librarian. CLOSED facets: the skill must pick only from the listed values (no inventing). OPEN facets: the skill may propose a NEW normalized value when nothing fits, but must flag it for monthly review. Add new words here to teach the skill — edits take effect with no code change. Keep values lowercase-hyphenated.",
+
+  "closed": {
+    "category": ["hairstyle", "makeup", "hijab"],
+
+    "body-part": ["eyes", "lips", "face", "brows", "lashes", "nails", "hair", "head"],
+
+    "silhouette": ["updo", "half-up", "down", "bun", "ponytail", "braids", "wash-n-go"],
+
+    "effort": ["quick", "medium", "involved"],
+
+    "occasion": ["everyday", "work", "gym", "event", "formal", "date", "travel",
+                 "lounging", "errands", "religious", "photoshoot", "sleep"],
+
+    "vibe": ["soft", "glam", "edgy", "natural", "elegant", "playful", "dramatic",
+             "romantic", "sleek", "messy", "bold", "minimal", "vintage", "trendy"],
+
+    "state": ["wash-day", "freshly-washed", "second-day-hair", "third-day-hair",
+              "refresh", "dry-hair", "wet-hair", "damp-hair", "overnight",
+              "gym-ready", "grown-out", "bare-face"],
+
+    "accessibility": ["one-handed", "chronic-pain", "neurodivergence",
+                      "low-manipulation", "none"],
+
+    "suitable-for": ["hat-friendly", "helmet-friendly", "hood-friendly",
+                     "sleep-friendly", "workout-friendly", "none", "not-applicable"]
+  },
+
+  "open": {
+    "accessory": ["none", "scarf", "headband", "hat", "claw-clip", "clip-in",
+                  "wig-piece", "false-lashes", "jewelry", "hair-pins", "hair-comb",
+                  "french-comb", "half-up-comb", "wig-headband", "bun-maker"],
+
+    "tool": ["none", "no-heat", "no-tools", "diffuser", "blow-dryer", "flat-iron",
+             "curling-wand", "hot-air-brush", "flexi-rods", "rollers",
+             "beauty-blender", "lash-curler"],
+
+    "technique": ["wash-n-go", "twist-out", "braid-out", "bantu-knots", "flat-twist",
+                  "halo-braid", "space-buns", "smoky-eye", "cut-crease", "winged-liner",
+                  "false-lashes", "soft-glam", "no-makeup", "contour", "blush", "highlight"]
+  },
+
+  "always_required": ["category", "body-part", "effort", "accessory", "tool"],
+
+  "notes": {
+    "accessory_none": "Use 'none' to mean the style needs no accessory at all — makes 'just my hands' filterable.",
+    "tool_none": "'no-heat' and 'no-tools' are explicit so absence-of-heat is filterable.",
+    "suitable-for": "Describes what a style can TOLERATE (e.g. worn UNDER a hat/helmet), not what's worn as the look. For hairstyle/hijab, assess it (hat-friendly etc., or 'none' if it doesn't hold up). For makeup, default to 'not-applicable'. Multi-value allowed.",
+    "accessibility_none": "Apply 'none' when no accommodation tag fits, so the facet is always present.",
+    "state_bare-face": "For makeup, 'bare-face' marks the starting point."
+  }
+}
